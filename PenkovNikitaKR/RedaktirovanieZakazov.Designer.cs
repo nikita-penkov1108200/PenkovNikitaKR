@@ -68,13 +68,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxClientDeviceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxClientDeviceName.FormattingEnabled = true;
-            this.comboBoxClientDeviceName.Items.AddRange(new object[] {
-            "Администратор",
-            "Пользователь"});
-            this.comboBoxClientDeviceName.Location = new System.Drawing.Point(949, 20);
-            this.comboBoxClientDeviceName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxClientDeviceName.Location = new System.Drawing.Point(712, 16);
+            this.comboBoxClientDeviceName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxClientDeviceName.Name = "comboBoxClientDeviceName";
-            this.comboBoxClientDeviceName.Size = new System.Drawing.Size(348, 37);
+            this.comboBoxClientDeviceName.Size = new System.Drawing.Size(262, 32);
             this.comboBoxClientDeviceName.TabIndex = 206;
             this.comboBoxClientDeviceName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -87,10 +84,10 @@
             this.comboBoxVIPStatus.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxVIPStatus.Location = new System.Drawing.Point(256, 207);
-            this.comboBoxVIPStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxVIPStatus.Location = new System.Drawing.Point(192, 168);
+            this.comboBoxVIPStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxVIPStatus.Name = "comboBoxVIPStatus";
-            this.comboBoxVIPStatus.Size = new System.Drawing.Size(243, 37);
+            this.comboBoxVIPStatus.Size = new System.Drawing.Size(183, 32);
             this.comboBoxVIPStatus.TabIndex = 198;
             this.comboBoxVIPStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -100,10 +97,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(944, 380);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(708, 309);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(308, 29);
+            this.label14.Size = new System.Drawing.Size(240, 24);
             this.label14.TabIndex = 197;
             this.label14.Text = "Дата завершения работы";
             // 
@@ -113,10 +109,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(594, 380);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(446, 309);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(246, 29);
+            this.label15.Size = new System.Drawing.Size(191, 24);
             this.label15.TabIndex = 196;
             this.label15.Text = "Дата начала работы";
             // 
@@ -125,12 +120,11 @@
             this.textBoxOrderDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxOrderDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxOrderDescription.Location = new System.Drawing.Point(844, 217);
-            this.textBoxOrderDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxOrderDescription.Location = new System.Drawing.Point(633, 176);
             this.textBoxOrderDescription.MaxLength = 45;
             this.textBoxOrderDescription.Multiline = true;
             this.textBoxOrderDescription.Name = "textBoxOrderDescription";
-            this.textBoxOrderDescription.Size = new System.Drawing.Size(452, 127);
+            this.textBoxOrderDescription.Size = new System.Drawing.Size(340, 104);
             this.textBoxOrderDescription.TabIndex = 195;
             this.textBoxOrderDescription.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.textBoxOrderDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNameComponentDevice_KeyPress);
@@ -141,10 +135,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(613, 218);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(460, 177);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(214, 29);
+            this.label13.Size = new System.Drawing.Size(164, 24);
             this.label13.TabIndex = 194;
             this.label13.Text = "Описание заказа";
             // 
@@ -154,10 +147,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(612, 20);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(459, 16);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(328, 29);
+            this.label12.Size = new System.Drawing.Size(254, 24);
             this.label12.TabIndex = 193;
             this.label12.Text = "Название девайса клиента";
             // 
@@ -166,11 +158,10 @@
             this.textBoxComponentQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxComponentQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxComponentQuantity.Location = new System.Drawing.Point(948, 143);
-            this.textBoxComponentQuantity.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxComponentQuantity.Location = new System.Drawing.Point(711, 116);
             this.textBoxComponentQuantity.MaxLength = 45;
             this.textBoxComponentQuantity.Name = "textBoxComponentQuantity";
-            this.textBoxComponentQuantity.Size = new System.Drawing.Size(349, 34);
+            this.textBoxComponentQuantity.Size = new System.Drawing.Size(263, 29);
             this.textBoxComponentQuantity.TabIndex = 192;
             this.textBoxComponentQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPhoneNumber_KeyPress);
             // 
@@ -180,10 +171,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(612, 148);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(459, 120);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(314, 29);
+            this.label11.Size = new System.Drawing.Size(242, 24);
             this.label11.TabIndex = 191;
             this.label11.Text = "Количество компонентов";
             // 
@@ -193,10 +183,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(612, 91);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(459, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(274, 29);
+            this.label9.Size = new System.Drawing.Size(210, 24);
             this.label9.TabIndex = 190;
             this.label9.Text = "Название компонента";
             // 
@@ -209,10 +198,10 @@
             this.comboBoxEmployee.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxEmployee.Location = new System.Drawing.Point(256, 17);
-            this.comboBoxEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxEmployee.Location = new System.Drawing.Point(192, 14);
+            this.comboBoxEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxEmployee.Name = "comboBoxEmployee";
-            this.comboBoxEmployee.Size = new System.Drawing.Size(243, 37);
+            this.comboBoxEmployee.Size = new System.Drawing.Size(183, 32);
             this.comboBoxEmployee.TabIndex = 189;
             this.comboBoxEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -225,10 +214,10 @@
             this.comboBoxService.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxService.Location = new System.Drawing.Point(256, 270);
-            this.comboBoxService.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxService.Location = new System.Drawing.Point(192, 219);
+            this.comboBoxService.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxService.Name = "comboBoxService";
-            this.comboBoxService.Size = new System.Drawing.Size(243, 37);
+            this.comboBoxService.Size = new System.Drawing.Size(183, 32);
             this.comboBoxService.TabIndex = 188;
             this.comboBoxService.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -237,11 +226,10 @@
             this.textBoxTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxTotalCost.Location = new System.Drawing.Point(256, 458);
-            this.textBoxTotalCost.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTotalCost.Location = new System.Drawing.Point(192, 372);
             this.textBoxTotalCost.MaxLength = 45;
             this.textBoxTotalCost.Name = "textBoxTotalCost";
-            this.textBoxTotalCost.Size = new System.Drawing.Size(243, 34);
+            this.textBoxTotalCost.Size = new System.Drawing.Size(183, 29);
             this.textBoxTotalCost.TabIndex = 187;
             // 
             // label10
@@ -250,10 +238,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(15, 455);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(11, 370);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(237, 29);
+            this.label10.Size = new System.Drawing.Size(186, 24);
             this.label10.TabIndex = 186;
             this.label10.Text = "Цена за всю работу";
             // 
@@ -262,11 +249,10 @@
             this.textBoxComponentCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxComponentCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxComponentCost.Location = new System.Drawing.Point(256, 391);
-            this.textBoxComponentCost.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxComponentCost.Location = new System.Drawing.Point(192, 318);
             this.textBoxComponentCost.MaxLength = 45;
             this.textBoxComponentCost.Name = "textBoxComponentCost";
-            this.textBoxComponentCost.Size = new System.Drawing.Size(243, 34);
+            this.textBoxComponentCost.Size = new System.Drawing.Size(183, 29);
             this.textBoxComponentCost.TabIndex = 185;
             // 
             // label8
@@ -275,10 +261,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(15, 386);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(11, 314);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(239, 29);
+            this.label8.Size = new System.Drawing.Size(182, 24);
             this.label8.TabIndex = 184;
             this.label8.Text = "Цена за компонент";
             // 
@@ -287,11 +272,10 @@
             this.textBoxServiceCost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxServiceCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxServiceCost.Location = new System.Drawing.Point(256, 340);
-            this.textBoxServiceCost.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxServiceCost.Location = new System.Drawing.Point(192, 276);
             this.textBoxServiceCost.MaxLength = 45;
             this.textBoxServiceCost.Name = "textBoxServiceCost";
-            this.textBoxServiceCost.Size = new System.Drawing.Size(243, 34);
+            this.textBoxServiceCost.Size = new System.Drawing.Size(183, 29);
             this.textBoxServiceCost.TabIndex = 183;
             // 
             // label7
@@ -300,10 +284,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(15, 335);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(11, 272);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 29);
+            this.label7.Size = new System.Drawing.Size(117, 24);
             this.label7.TabIndex = 182;
             this.label7.Text = "Цена услуги";
             // 
@@ -313,10 +296,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(15, 273);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(11, 222);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(207, 29);
+            this.label6.Size = new System.Drawing.Size(160, 24);
             this.label6.TabIndex = 181;
             this.label6.Text = "Название услуги";
             // 
@@ -326,10 +308,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(15, 202);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(11, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 29);
+            this.label4.Size = new System.Drawing.Size(106, 24);
             this.label4.TabIndex = 180;
             this.label4.Text = "Статус VIP";
             // 
@@ -342,10 +323,10 @@
             this.comboBoxOrderStatus.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxOrderStatus.Location = new System.Drawing.Point(256, 514);
-            this.comboBoxOrderStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxOrderStatus.Location = new System.Drawing.Point(192, 418);
+            this.comboBoxOrderStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxOrderStatus.Name = "comboBoxOrderStatus";
-            this.comboBoxOrderStatus.Size = new System.Drawing.Size(243, 37);
+            this.comboBoxOrderStatus.Size = new System.Drawing.Size(183, 32);
             this.comboBoxOrderStatus.TabIndex = 179;
             this.comboBoxOrderStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -355,10 +336,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(15, 517);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(11, 420);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 29);
+            this.label3.Size = new System.Drawing.Size(136, 24);
             this.label3.TabIndex = 178;
             this.label3.Text = "Статус заказа";
             // 
@@ -367,11 +347,10 @@
             this.textBoxPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPhoneNumber.Location = new System.Drawing.Point(256, 148);
-            this.textBoxPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPhoneNumber.Location = new System.Drawing.Point(192, 120);
             this.textBoxPhoneNumber.MaxLength = 45;
             this.textBoxPhoneNumber.Name = "textBoxPhoneNumber";
-            this.textBoxPhoneNumber.Size = new System.Drawing.Size(243, 34);
+            this.textBoxPhoneNumber.Size = new System.Drawing.Size(183, 29);
             this.textBoxPhoneNumber.TabIndex = 177;
             // 
             // label5
@@ -380,10 +359,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(15, 146);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(11, 119);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 29);
+            this.label5.Size = new System.Drawing.Size(162, 24);
             this.label5.TabIndex = 176;
             this.label5.Text = "Номер телефона";
             // 
@@ -393,10 +371,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(15, 82);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(11, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 29);
+            this.label2.Size = new System.Drawing.Size(134, 24);
             this.label2.TabIndex = 174;
             this.label2.Text = "ФИО Клиента";
             // 
@@ -406,10 +383,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(15, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(11, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 29);
+            this.label1.Size = new System.Drawing.Size(166, 24);
             this.label1.TabIndex = 173;
             this.label1.Text = "ФИО Сотрудника";
             // 
@@ -419,10 +395,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(256, 568);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(192, 462);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 65);
+            this.button2.Size = new System.Drawing.Size(182, 53);
             this.button2.TabIndex = 170;
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = false;
@@ -434,10 +409,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(13, 568);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(10, 462);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 65);
+            this.button1.Size = new System.Drawing.Size(179, 53);
             this.button1.TabIndex = 169;
             this.button1.Text = "Редактировать";
             this.button1.UseVisualStyleBackColor = false;
@@ -447,8 +421,7 @@
             // 
             this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar1.Location = new System.Drawing.Point(619, 420);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendar1.Location = new System.Drawing.Point(464, 341);
             this.monthCalendar1.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.monthCalendar1.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
@@ -458,8 +431,7 @@
             // 
             this.monthCalendar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar2.Location = new System.Drawing.Point(981, 420);
-            this.monthCalendar2.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.monthCalendar2.Location = new System.Drawing.Point(736, 341);
             this.monthCalendar2.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.monthCalendar2.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.monthCalendar2.Name = "monthCalendar2";
@@ -474,10 +446,10 @@
             this.comboBoxClientName.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxClientName.Location = new System.Drawing.Point(256, 83);
-            this.comboBoxClientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxClientName.Location = new System.Drawing.Point(192, 67);
+            this.comboBoxClientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxClientName.Name = "comboBoxClientName";
-            this.comboBoxClientName.Size = new System.Drawing.Size(243, 37);
+            this.comboBoxClientName.Size = new System.Drawing.Size(183, 32);
             this.comboBoxClientName.TabIndex = 209;
             this.comboBoxClientName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
@@ -490,20 +462,20 @@
             this.comboBoxComponentName.Items.AddRange(new object[] {
             "Администратор",
             "Пользователь"});
-            this.comboBoxComponentName.Location = new System.Drawing.Point(949, 83);
-            this.comboBoxComponentName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxComponentName.Location = new System.Drawing.Point(712, 67);
+            this.comboBoxComponentName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxComponentName.Name = "comboBoxComponentName";
-            this.comboBoxComponentName.Size = new System.Drawing.Size(348, 37);
+            this.comboBoxComponentName.Size = new System.Drawing.Size(262, 32);
             this.comboBoxComponentName.TabIndex = 210;
             this.comboBoxComponentName.SelectedIndexChanged += new System.EventHandler(this.comboBoxComponentName_SelectedIndexChanged);
             this.comboBoxComponentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ComboBox_KeyPress);
             // 
             // RedaktirovanieZakazov
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1321, 646);
+            this.ClientSize = new System.Drawing.Size(991, 525);
             this.Controls.Add(this.comboBoxComponentName);
             this.Controls.Add(this.comboBoxClientName);
             this.Controls.Add(this.monthCalendar2);
@@ -536,7 +508,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RedaktirovanieZakazov";

@@ -27,7 +27,7 @@ namespace PenkovNikitaKR
             LoadEmployees();
             SetupAutoComplete();
             SetupComponentNameAutoComplete();
-            LoadClientDeviceNames(); // Загрузка названий устройств
+// Загрузка названий устройств
             textBoxComponentQuantity.TextChanged += textBoxComponentQuantity_TextChanged;
             comboBoxService.SelectedIndexChanged += comboBoxService_SelectedIndexChanged;
             comboBoxVIPStatus.SelectedIndexChanged += comboBoxVIPStatus_SelectedIndexChanged;
@@ -46,7 +46,11 @@ namespace PenkovNikitaKR
                 string query = "SELECT * FROM orders WHERE NumberOrders = @orderId";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@orderId", orderId); // Используем переданный orderId
-
+                comboBoxClientDeviceName.Items.Add("ПК");
+                comboBoxClientDeviceName.Items.Add("Ноутбук");
+                comboBoxClientDeviceName.Items.Add("Телефон");
+                comboBoxClientDeviceName.Items.Add("Телевизор");
+                comboBoxClientDeviceName.Items.Add("Монитор");
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -66,7 +70,13 @@ namespace PenkovNikitaKR
                         textBoxComponentQuantity.Text = reader["QuantityComponentReplaced"].ToString();
                         textBoxOrderDescription.Text = reader["OrderdDescription"].ToString();
 
-                        comboBoxClientDeviceName.SelectedValue = reader["NameClientDevice"].ToString();
+                        string clientDeviceName = reader["NameClientDevice"].ToString();
+                        if (comboBoxClientDeviceName.Items.Contains(clientDeviceName))
+                        {
+                            comboBoxClientDeviceName.SelectedItem = clientDeviceName; // Устанавливаем выбранное значение
+                        }
+
+
                         comboBoxOrderStatus.SelectedValue = reader["OrderStatus"].ToString();
 
                         // Заполнение полей стоимости
@@ -109,11 +119,7 @@ namespace PenkovNikitaKR
             comboBoxVIPStatus.Enabled = false;
         }
         // Метод для загрузки названий устройств в comboBoxClientDeviceName
-        private void LoadClientDeviceNames()
-        {
-            List<string> deviceNames = new List<string> { "ПК", "Ноутбук", "Смартфон", "Телевизор", "Монитор" };
-            comboBoxClientDeviceName.DataSource = deviceNames;
-        }
+
         private void LoadServices()
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString.connectionString()))
@@ -126,7 +132,7 @@ namespace PenkovNikitaKR
 
                 comboBoxService.DataSource = servicesTable;
                 comboBoxService.DisplayMember = "Name"; // Отображаемое значение в комбобоксе
-                comboBoxService.ValueMember = "Name"; // Сохраняем id услуги
+                comboBoxService.ValueMember = "idservices"; // Сохраняем id услуги
             }
         }
 

@@ -55,6 +55,13 @@ namespace PenkovNikitaKR
             this.Visible = false;
             ProsmotrComponentDevice main = new ProsmotrComponentDevice(true);
             main.ShowDialog(); 
-        }//
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Import main = new Import();
+            main.ShowDialog();
+        }
     }
 }
