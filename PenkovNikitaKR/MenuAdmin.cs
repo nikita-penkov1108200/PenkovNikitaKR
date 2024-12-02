@@ -55,6 +55,6 @@ namespace PenkovNikitaKR
             this.Visible = false;
             ProsmotrComponentDevice main = new ProsmotrComponentDevice(true);
             main.ShowDialog(); 
-        }
+        }//
     }
 }
