@@ -112,6 +112,7 @@ namespace PenkovNikitaKR
                 else
                 {
                     MessageBox.Show("Введен не правильный логин или пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Width = 1350;
                     qlogin.Text = "";
                     qpass.Text = "";
                 }
@@ -210,7 +211,7 @@ namespace PenkovNikitaKR
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -218,6 +219,7 @@ namespace PenkovNikitaKR
             if (textBox1.Text == this.text)
             {
                 MessageBox.Show("Верно!");
+                this.Width = 1250;
                 Class1.k = 4;
             }
             else
