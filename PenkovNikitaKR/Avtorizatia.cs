@@ -18,6 +18,8 @@ namespace PenkovNikitaKR
     {
         public int count = 0;
         private string text = String.Empty;
+        private bool isBlocked = false; // Переменная для отслеживания блокировки
+        private Timer unblockTimer; // Таймер для разблокировки
         public Avtorizatia()
         {
             InitializeComponent();
@@ -27,8 +29,20 @@ namespace PenkovNikitaKR
             pictureBox1.Image = image;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Resize += new EventHandler(ProsmotrYslyk_Resize);
+
+
+            // Инициализация таймера
+            unblockTimer = new Timer();
+            unblockTimer.Interval = 10000; // 10 секунд
+            unblockTimer.Tick += UnblockTimer_Tick;
         }
 
+        private void UnblockTimer_Tick(object sender, EventArgs e)
+        {
+            isBlocked = false; // Разблокируем
+            unblockTimer.Stop(); // Останавливаем таймер
+            MessageBox.Show("Вы можете снова ввести логин и пароль.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void ProsmotrYslyk_Resize(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -50,6 +64,20 @@ namespace PenkovNikitaKR
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Проверка на блокировку
+            if (isBlocked)
+            {
+                MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Проверяем, включены ли текстовые поля для логина и пароля
+            if (!qlogin.Enabled || !qpass.Enabled)
+            {
+                MessageBox.Show("Сначала пройдите капчу.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string login = qlogin.Text;
             string passwd = qpass.Text;
 
@@ -81,6 +109,8 @@ namespace PenkovNikitaKR
                 if (reader.Read())
                 {
                     int UserID = reader.GetInt32("idemployee");
+                    string Login = reader.GetString("login");
+                    string UsPassword = reader.GetString("password");
                     string UsSername = reader.GetString("Surname");
                     string UsName = reader.GetString("Name");
                     string UsPatronymic = reader.GetString("MiddleName");
@@ -91,30 +121,40 @@ namespace PenkovNikitaKR
                     CurrentUser.Patronymic = UsPatronymic;
                     CurrentUser.Role = UsRole;
 
-                    MessageBox.Show("Успешный вход");
                     if (UsRole == "Администратор")
                     {
+                        MessageBox.Show("Успешный вход");
                         MenuAdmin MA = new MenuAdmin();
                         MA.Show();
+                        this.Hide();
                     }
                     else if (UsRole == "Менеджер")
                     {
+                        MessageBox.Show("Успешный вход");
                         MenuPolzovatel MA = new MenuPolzovatel();
                         MA.Show();
+                        this.Hide();
                     }
                     else if (UsRole == "Техник")
                     {
+                        MessageBox.Show("Успешный вход");
                         HistoryOrder MA = new HistoryOrder();
                         MA.Show();
+                        this.Hide();
                     }
-                    this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Введен не правильный логин или пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Width = 1350;
                     qlogin.Text = "";
                     qpass.Text = "";
+                    this.Width = 700;
+
+                    // Блокируем возможность ввода
+                    isBlocked = true;
+                    qlogin.Enabled = false; // Отключаем текстовое поле для логина
+                    qpass.Enabled = false; // Отключаем текстовое поле для пароля
+                    unblockTimer.Start(); // Запускаем таймер
                 }
                 reader.Close();
             }
@@ -173,8 +213,9 @@ namespace PenkovNikitaKR
 
             Bitmap result = new Bitmap(Width, Height);
 
-            int Xpos = rnd.Next(0, Width - 100);
-            int Ypos = rnd.Next(15, Height - 50);
+            
+            int Xpos = Width > 100 ? rnd.Next(0, Width - 100) : 0; // Устанавливаем Xpos в 0, если Width < 100
+            int Ypos = Height > 50 ? rnd.Next(15, Height - 50) : 15; // Устанавливаем Ypos в 15, если Height < 50
 
             Brush[] colors = { Brushes.Black,
                      Brushes.Red,
@@ -209,9 +250,18 @@ namespace PenkovNikitaKR
 
             return result;
         }
+  
+
+   
+
+        private void Avtorizatia_Load(object sender, EventArgs e)
+        {
+            pictureBox2.Image = this.CreateImage(pictureBox2.Width, pictureBox2.Height);
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
+            pictureBox2.Image = this.CreateImage(pictureBox2.Width, pictureBox2.Height);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -219,19 +269,20 @@ namespace PenkovNikitaKR
             if (textBox1.Text == this.text)
             {
                 MessageBox.Show("Верно!");
-                this.Width = 1250;
                 Class1.k = 4;
+                this.Width = 360;
+
+                // Разрешаем ввод логина и пароля
+                qlogin.Enabled = true; // Включаем текстовое поле для логина
+                qpass.Enabled = true; // Включаем текстовое поле для пароля
+                textBox1.Text = "";
+                pictureBox2.Image = this.CreateImage(pictureBox2.Width, pictureBox2.Height);
             }
             else
             {
                 MessageBox.Show("Ошибка!");
                 textBox1.Text = "";
             }
-        }
-
-        private void Avtorizatia_Load(object sender, EventArgs e)
-        {
-            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
         }
     }
     internal class Class1
