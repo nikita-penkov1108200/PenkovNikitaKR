@@ -14,7 +14,6 @@ namespace PenkovNikitaKR
 {
     public partial class Import : Form
     {
-        //
         public Import()
         {
             InitializeComponent();

@@ -10,7 +10,7 @@ namespace PenkovNikitaKR
     {
         public static string connectionString()
         {
-            string dConnectionString = $"Server=127.0.0.1; Database=masterskay; Uid=penkovv; Pwd=pypok_1488pypok_1488";
+            string dConnectionString = $"Server=127.0.0.1; Database=masterskay; Uid=root; Pwd=root";
 
             return dConnectionString;
 
