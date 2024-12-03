@@ -158,6 +158,7 @@
             this.button2.TabIndex = 29;
             this.button2.Text = "Проверить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -171,6 +172,7 @@
             this.button4.TabIndex = 28;
             this.button4.Text = "Обновить";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Avtorizatia
             // 
@@ -196,6 +198,7 @@
             this.MinimizeBox = false;
             this.Name = "Avtorizatia";
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.Avtorizatia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

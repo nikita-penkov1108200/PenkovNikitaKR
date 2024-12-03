@@ -17,6 +17,7 @@ namespace PenkovNikitaKR
     public partial class Avtorizatia : Form
     {
         public int count = 0;
+        private string text = String.Empty;
         public Avtorizatia()
         {
             InitializeComponent();
@@ -165,5 +166,75 @@ namespace PenkovNikitaKR
                 e.Handled = true; // Запрещаем ввод, если превышено максимальное количество символов
             }
         }
+        public Bitmap CreateImage(int Width, int Height)
+        {
+            Random rnd = new Random();
+
+            Bitmap result = new Bitmap(Width, Height);
+
+            int Xpos = rnd.Next(0, Width - 100);
+            int Ypos = rnd.Next(15, Height - 50);
+
+            Brush[] colors = { Brushes.Black,
+                     Brushes.Red,
+                     Brushes.DarkRed,
+                     Brushes.Green };
+
+            Graphics g = Graphics.FromImage((Image)result);
+
+            g.Clear(Color.Gray);
+
+            text = String.Empty;
+            string ALF = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
+            for (int i = 0; i < 5; ++i)
+                text += ALF[rnd.Next(ALF.Length)];
+
+            g.DrawString(text,
+                         new Font("Arial", 28),
+                         colors[rnd.Next(colors.Length)],
+                         new PointF(Xpos, Ypos));
+
+            g.DrawLine(Pens.Black,
+                       new Point(0, 0),
+                       new Point(Width - 1, Height - 1));
+            g.DrawLine(Pens.Black,
+                       new Point(0, Height - 1),
+                       new Point(Width - 1, 0));
+
+            for (int i = 0; i < Width; ++i)
+                for (int j = 0; j < Height; ++j)
+                    if (rnd.Next() % 20 == 0)
+                        result.SetPixel(i, j, Color.White);
+
+            return result;
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == this.text)
+            {
+                MessageBox.Show("Верно!");
+                Class1.k = 4;
+            }
+            else
+            {
+                MessageBox.Show("Ошибка!");
+                textBox1.Text = "";
+            }
+        }
+
+        private void Avtorizatia_Load(object sender, EventArgs e)
+        {
+            pictureBox1.Image = this.CreateImage(pictureBox1.Width, pictureBox1.Height);
+        }
+    }
+    internal class Class1
+    {
+        public static int k = 0;
+        public static string l = "";
     }
 }
