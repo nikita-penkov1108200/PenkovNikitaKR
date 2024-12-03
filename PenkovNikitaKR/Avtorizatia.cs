@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace PenkovNikitaKR
 {
@@ -31,6 +32,7 @@ namespace PenkovNikitaKR
         {
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+
         private string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -50,8 +52,22 @@ namespace PenkovNikitaKR
             string login = qlogin.Text;
             string passwd = qpass.Text;
 
+            // Получаем логин и пароль из App.config
+            string adminUsername = ConfigurationManager.AppSettings["AdminUsername"];
+            string adminPassword = ConfigurationManager.AppSettings["AdminPassword"];
+
             // Хешируем введенный пароль
             string hashedPassword = HashPassword(passwd);
+
+            // Проверка на логин и пароль из App.config
+            if (login == adminUsername && hashedPassword == HashPassword(adminPassword))
+            {
+                // Если логин и пароль совпадают, переходим на форму Import
+                Import importForm = new Import();
+                importForm.Show();
+                this.Hide();
+                return;
+            }
 
             using (MySqlConnection con = new MySqlConnection(ConnectionString.connectionString()))
             {
@@ -64,8 +80,6 @@ namespace PenkovNikitaKR
                 if (reader.Read())
                 {
                     int UserID = reader.GetInt32("idemployee");
-                    string Login = reader.GetString("login");
-                    string UsPassword = reader.GetString("password");
                     string UsSername = reader.GetString("Surname");
                     string UsName = reader.GetString("Name");
                     string UsPatronymic = reader.GetString("MiddleName");
@@ -76,27 +90,23 @@ namespace PenkovNikitaKR
                     CurrentUser.Patronymic = UsPatronymic;
                     CurrentUser.Role = UsRole;
 
+                    MessageBox.Show("Успешный вход");
                     if (UsRole == "Администратор")
                     {
-                        MessageBox.Show("Успешный вход");
                         MenuAdmin MA = new MenuAdmin();
                         MA.Show();
-                        this.Hide();
                     }
                     else if (UsRole == "Менеджер")
                     {
-                        MessageBox.Show("Успешный вход");
                         MenuPolzovatel MA = new MenuPolzovatel();
                         MA.Show();
-                        this.Hide();
                     }
                     else if (UsRole == "Техник")
                     {
-                        MessageBox.Show("Успешный вход");
                         HistoryOrder MA = new HistoryOrder();
                         MA.Show();
-                        this.Hide();
                     }
+                    this.Hide();
                 }
                 else
                 {
@@ -137,6 +147,7 @@ namespace PenkovNikitaKR
                 pictureBox1.Image = Resource1.view; // Изображение закрытого глаза
             }
         }
+
         private void textBoxlogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Проверяем, не превышает ли длина текста 10 символов

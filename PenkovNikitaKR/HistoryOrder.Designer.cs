@@ -167,7 +167,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.button3.Location = new System.Drawing.Point(550, 89);
+            this.button3.Location = new System.Drawing.Point(551, 89);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(202, 39);
