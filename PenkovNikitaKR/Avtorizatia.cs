@@ -14,7 +14,6 @@ using System.Configuration;
 
 namespace PenkovNikitaKR
 {
-    //
     public partial class Avtorizatia : Form
     {
         public int count = 0;
