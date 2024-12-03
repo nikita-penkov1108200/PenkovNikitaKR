@@ -39,9 +39,10 @@ namespace PenkovNikitaKR
 
         private void UnblockTimer_Tick(object sender, EventArgs e)
         {
+            textBox1.Enabled = true;
             isBlocked = false; // Разблокируем
             unblockTimer.Stop(); // Останавливаем таймер
-            MessageBox.Show("Вы можете снова ввести логин и пароль.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Вы можете снова ввести логин, пароль и капчу.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void ProsmotrYslyk_Resize(object sender, EventArgs e)
         {
@@ -64,12 +65,7 @@ namespace PenkovNikitaKR
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Проверка на блокировку
-            if (isBlocked)
-            {
-                MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+           
 
             // Проверяем, включены ли текстовые поля для логина и пароля
             if (!qlogin.Enabled || !qpass.Enabled)
@@ -151,10 +147,8 @@ namespace PenkovNikitaKR
                     this.Width = 700;
 
                     // Блокируем возможность ввода
-                    isBlocked = true;
                     qlogin.Enabled = false; // Отключаем текстовое поле для логина
                     qpass.Enabled = false; // Отключаем текстовое поле для пароля
-                    unblockTimer.Start(); // Запускаем таймер
                 }
                 reader.Close();
             }
@@ -282,6 +276,15 @@ namespace PenkovNikitaKR
             {
                 MessageBox.Show("Ошибка!");
                 textBox1.Text = "";
+                // Проверка на блокировку
+                if (isBlocked)
+                {
+                    MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                textBox1.Enabled = false;
+                isBlocked = true;
+                unblockTimer.Start(); // Запускаем таймер
             }
         }
     }
