@@ -275,13 +275,8 @@ namespace PenkovNikitaKR
             else
             {
                 MessageBox.Show("Ошибка!");
-                textBox1.Text = "";
-                // Проверка на блокировку
-                if (isBlocked)
-                {
-                    MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                textBox1.Text = "";              
+                MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Enabled = false;
                 isBlocked = true;
                 unblockTimer.Start(); // Запускаем таймер
