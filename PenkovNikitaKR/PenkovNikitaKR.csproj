@@ -71,6 +71,9 @@
     </Compile>
     <Compile Include="ConnectionString.cs" />
     <Compile Include="CurrentUser.cs" />
+    <Compile Include="CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="detalprosmotr.cs">
       <SubType>Form</SubType>
     </Compile>

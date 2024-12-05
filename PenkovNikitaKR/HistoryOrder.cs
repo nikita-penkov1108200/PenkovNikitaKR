@@ -32,6 +32,26 @@ namespace PenkovNikitaKR
             // Привязка обработчика событий для textBoxSearch
             textBoxSearch.KeyPress += TextBoxSearch_KeyPress;
             textBoxSearch.TextChanged += textBoxSearch_TextChanged; // Добавляем обработчик
+
+            CustomLabel customLabel = new CustomLabel
+            {
+                Text = "       - Заказ не закрыт",
+                Size = new Size(200, 50), // Установите нужный размер
+                Location = new Point(10, 500), // Установите нужное положение
+                TextAlign = ContentAlignment.MiddleLeft,
+                SquareColor = Color.LightCoral // Установите нужный цвет квадрата
+            };
+            this.Controls.Add(customLabel);
+
+            CustomLabel customLabel1 = new CustomLabel
+            {
+                Text = "       - Заказ закрыт",
+                Size = new Size(200, 50), // Установите нужный размер
+                Location = new Point(10, 530), // Установите нужное положение
+                TextAlign = ContentAlignment.MiddleLeft,
+                SquareColor = Color.LightGreen // Установите нужный цвет квадрата
+            };
+            this.Controls.Add(customLabel1);
         }
         private void TextBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -224,10 +244,10 @@ namespace PenkovNikitaKR
                     switch (statusVIP)
                     {
                         case "В ожидании":
-                            e.CellStyle.BackColor = Color.Red;
+                            e.CellStyle.BackColor = Color.LightCoral;
                             break;
                         case "Завершен":
-                            e.CellStyle.BackColor = Color.Green;
+                            e.CellStyle.BackColor = Color.LightGreen;
                             break;
                         default:
                             e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
