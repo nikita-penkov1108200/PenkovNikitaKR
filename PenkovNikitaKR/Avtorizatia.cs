@@ -40,6 +40,11 @@ namespace PenkovNikitaKR
         private void UnblockTimer_Tick(object sender, EventArgs e)
         {
             textBox1.Enabled = true;
+            button1.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button2.Enabled = true;
+            pictureBox1.Enabled = true;
             isBlocked = false; // Разблокируем
             unblockTimer.Stop(); // Останавливаем таймер
             MessageBox.Show("Вы можете снова ввести логин, пароль и капчу.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -278,6 +283,11 @@ namespace PenkovNikitaKR
                 textBox1.Text = "";              
                 MessageBox.Show("Вход заблокирован. Пожалуйста, подождите 10 секунд.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Enabled = false;
+                button1.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button2.Enabled = false;
+                pictureBox1.Enabled = false;
                 isBlocked = true;
                 unblockTimer.Start(); // Запускаем таймер
             }
