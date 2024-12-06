@@ -145,13 +145,13 @@ namespace PenkovNikitaKR
                             switch (statusVIP)
                             {
                                 case "Постоянный":
-                                    e.CellStyle.BackColor = Color.Green;
+                                    e.CellStyle.BackColor = Color.LightGreen;
                                     break;
                                 case "Элитный":
-                                    e.CellStyle.BackColor = Color.Purple;
+                                    e.CellStyle.BackColor = Color.LightCoral;
                                     break;
                                 case "Императорский":
-                                    e.CellStyle.BackColor = Color.Gold;
+                                    e.CellStyle.BackColor = Color.LightGoldenrodYellow;
                                     break;
                                 default:
                                     e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
@@ -277,6 +277,28 @@ namespace PenkovNikitaKR
                 MessageBox.Show("Выберите строку для удаления.");
             }
             LoadData();
+        }
+
+        private void просмотрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.CurrentRow != null)
+            {
+                var selectedRow = dataGridView.CurrentRow;
+                string name = selectedRow.Cells["Name"].Value.ToString();
+                string surname = selectedRow.Cells["Surname"].Value.ToString();
+                string middleName = selectedRow.Cells["MiddleName"].Value.ToString();
+                long phoneNumber = Convert.ToInt64(selectedRow.Cells["PhoneNumber"].Value);
+                string statusVIP = selectedRow.Cells["StatusVIP"].Value.ToString();
+
+                this.Visible = false;
+                PolnProsmotrClient editForm = new PolnProsmotrClient(name, surname, middleName, phoneNumber, statusVIP);                
+
+                editForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Выберите строку для просмотра.");
+            }
         }
     }
 }
