@@ -100,32 +100,65 @@ namespace PenkovNikitaKR
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var cellValue = dataGridView.Rows[e.RowIndex].Cells["StatusVIP"].Value;
+                // Получаем имя столбца
+                string columnName = dataGridView.Columns[e.ColumnIndex].Name;
 
-                // Проверяем, не является ли значение null
-                if (cellValue != null)
+                switch (columnName)
                 {
-                    string statusVIP = cellValue.ToString();
+                    case "Name":
+                        // Скрываем все кроме первой буквы
+                        var nameValue = dataGridView.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                        if (!string.IsNullOrEmpty(nameValue))
+                        {
+                            e.Value = nameValue.Substring(0, 1) + new string('*', nameValue.Length - 1);
+                        }
+                        break;
 
-                    switch (statusVIP)
-                    {
-                        case "Постоянный":
-                            e.CellStyle.BackColor = Color.Green;
-                            break;
-                        case "Элитный":
-                            e.CellStyle.BackColor = Color.Purple;
-                            break;
-                        case "Императорский":
-                            e.CellStyle.BackColor = Color.Gold;
-                            break;                     
-                        default:
-                            e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
-                            break;
-                    }
-                }
-                else
-                {
-                    e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию, если значение null
+                    case "MiddleName":
+                        // Скрываем все кроме первой буквы
+                        var middleNameValue = dataGridView.Rows[e.RowIndex].Cells["MiddleName"].Value.ToString();
+                        if (!string.IsNullOrEmpty(middleNameValue))
+                        {
+                            e.Value = middleNameValue.Substring(0, 1) + new string('*', middleNameValue.Length - 1);
+                        }
+                        break;
+
+                    case "PhoneNumber":
+                        // Скрываем все кроме последних двух цифр
+                        var phoneNumberValue = dataGridView.Rows[e.RowIndex].Cells["PhoneNumber"].Value.ToString();
+                        if (!string.IsNullOrEmpty(phoneNumberValue) && phoneNumberValue.Length > 2)
+                        {
+                            e.Value = new string('*', phoneNumberValue.Length - 2) + phoneNumberValue.Substring(phoneNumberValue.Length - 2);
+                        }
+                        break;
+
+                    case "Surname":
+                        // Не скрываем, оставляем как есть
+                        break;
+
+                    default:
+                        // Установка цвета фона для столбца StatusVIP
+                        var statusVIPValue = dataGridView.Rows[e.RowIndex].Cells["StatusVIP"].Value;
+                        if (statusVIPValue != null)
+                        {
+                            string statusVIP = statusVIPValue.ToString();
+                            switch (statusVIP)
+                            {
+                                case "Постоянный":
+                                    e.CellStyle.BackColor = Color.Green;
+                                    break;
+                                case "Элитный":
+                                    e.CellStyle.BackColor = Color.Purple;
+                                    break;
+                                case "Императорский":
+                                    e.CellStyle.BackColor = Color.Gold;
+                                    break;
+                                default:
+                                    e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
+                                    break;
+                            }
+                        }
+                        break;
                 }
             }
         }
