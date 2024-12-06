@@ -32,7 +32,7 @@ namespace PenkovNikitaKR
             dataGridView1.CellFormatting += DataGridView_CellFormatting;
 
             // Установка максимальной длины для textBoxSearch
-            textBoxSearch.MaxLength = 15; // Максимально 15 символов
+            textBoxSearch.MaxLength = 15; 
 
             // Привязка обработчика событий для textBoxSearch
             textBoxSearch.KeyPress += TextBoxSearch_KeyPress;
