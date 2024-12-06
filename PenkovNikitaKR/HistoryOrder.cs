@@ -183,6 +183,7 @@ namespace PenkovNikitaKR
                 dataGridView1.Columns["Services"].HeaderText = "Услуга";
             }
             UpdateCountLabel();
+            InitializePageButtons();
         }
         private void LoadOrderStatus()
         {
@@ -246,6 +247,7 @@ namespace PenkovNikitaKR
             DataView dv = dataTable.DefaultView;
             currentPage = 1; // Сбрасываем на первую страницу
             LoadData(); // Загружаем данные с учетом фильтров
+            InitializePageButtons();
             // Создаем фильтр
             string filter = string.Empty;
 
@@ -388,7 +390,34 @@ namespace PenkovNikitaKR
             ApplyFilterAndSort();
             UpdateCountLabel();
         }
+        private void InitializePageButtons()
+        {
+            int totalCount = GetTotalCount();
+            int totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
 
+            // Очищаем предыдущие кнопки
+            this.Controls.OfType<Button>().Where(b => b.Name.StartsWith("buttonPage")).ToList().ForEach(b => this.Controls.Remove(b));
+
+            for (int i = 1; i <= totalPages; i++)
+            {
+                Button buttonPage = new Button
+                {
+                    Text = i.ToString(),
+                    Name = $"buttonPage{i}",
+                    Location = new Point(200 + (i - 1) * 50, 570), // Расположение кнопок
+                    Size = new Size(40, 30)
+                };
+
+                int pageNumber = i; // Локальная переменная для замыкания
+                buttonPage.Click += (s, e) =>
+                {
+                    currentPage = pageNumber;
+                    LoadData();
+                };
+
+                this.Controls.Add(buttonPage);
+            }
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             // Сброс фильтрации
