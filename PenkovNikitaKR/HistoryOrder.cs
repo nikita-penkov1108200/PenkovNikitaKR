@@ -112,7 +112,30 @@ namespace PenkovNikitaKR
             using (MySqlConnection con = new MySqlConnection(ConnectionString.connectionString()))
             {
                 con.Open();
-                string query = "SELECT NumberOrders, OrderStatus, OrderdDescription, StartDateOrder, EndDateOrder, NameClient, SurnameClient, Services FROM orders LIMIT @offset, @limit";
+                // Обновляем запрос, чтобы учитывать фильтрацию
+                string query = "SELECT NumberOrders, OrderStatus, OrderdDescription, StartDateOrder, EndDateOrder, NameClient, SurnameClient, Services FROM orders WHERE 1=1"; // 1=1 для удобства добавления условий
+
+                // Добавляем фильтры
+                if (!string.IsNullOrEmpty(currentFilter))
+                {
+                    query += $" AND SurnameClient LIKE '%{currentFilter}%'";
+                }
+
+                if (comboBoxOrderStatus.SelectedItem != null)
+                {
+                    string selectedStatus = comboBoxOrderStatus.SelectedValue.ToString();
+                    query += $" AND OrderStatus = '{selectedStatus}'";
+                }
+
+                if (comboBoxServices.SelectedItem != null)
+                {
+                    string selectedService = comboBoxServices.SelectedValue.ToString();
+                    query += $" AND Services = '{selectedService}'";
+                }
+
+                // Добавляем пагинацию
+                query += " LIMIT @offset, @limit";
+
                 MySqlCommand command = new MySqlCommand(query, con);
 
                 // Установка параметров для постраничного отображения
@@ -213,6 +236,7 @@ namespace PenkovNikitaKR
             currentFilter = textBoxSearch.Text;
 
             // Применяем фильтрацию
+            currentFilter = textBoxSearch.Text;
             ApplyFilterAndSort();
             UpdateCountLabel();
         }
@@ -220,7 +244,8 @@ namespace PenkovNikitaKR
         private void ApplyFilterAndSort()
         {
             DataView dv = dataTable.DefaultView;
-
+            currentPage = 1; // Сбрасываем на первую страницу
+            LoadData(); // Загружаем данные с учетом фильтров
             // Создаем фильтр
             string filter = string.Empty;
 
@@ -380,31 +405,16 @@ namespace PenkovNikitaKR
 
         private void UpdateCountLabel()
         {
-            var totalCount = GetTotalCount(); // Получаем общее количество записей
+            // Получаем общее количество записей в базе данных
+            var totalCount = GetTotalCount();
+            // Получаем количество записей в текущем наборе данных (products)
+            var displayedCount = products.Count;
             var totalPages = (int)Math.Ceiling((double)totalCount / itemsPerPage);
-            labelCount.Text = $"Страница {currentPage} из {totalPages} (Всего записей: {totalCount})";
-        }
-        private void button6_Click(object sender, EventArgs e)
-        {
-            // Переход на следующую страницу
-            if (currentPage * itemsPerPage < products.Count)
-            {
-                currentPage++;
-                LoadData();
-            }
+            labelCount.Text = $"Страница {currentPage} из {totalPages} (Всего записей: {totalCount}, Отображаемых: {displayedCount})";
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // Переход на предыдущую страницу
-            if (currentPage > 1)
-            {
-                currentPage--;
-                LoadData();
-            }
-        }
 
-      
+
     }
     public class OrderHistoryItem
     {
