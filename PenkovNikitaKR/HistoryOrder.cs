@@ -50,11 +50,11 @@ namespace PenkovNikitaKR
 
             CustomLabel customLabel1 = new CustomLabel
             {
-                Text = "       - Заказ закрыт",
+                Text = "       - Срочно выполнить",
                 Size = new Size(150, 30), // Установите нужный размер
                 Location = new Point(10, 530), // Установите нужное положение
                 TextAlign = ContentAlignment.MiddleLeft,
-                SquareColor = Color.LightGreen // Установите нужный цвет квадрата
+                SquareColor = Color.Orange // Установите нужный цвет квадрата
             };
             this.Controls.Add(customLabel1);
 
@@ -320,23 +320,30 @@ namespace PenkovNikitaKR
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 var cellValue = dataGridView1.Rows[e.RowIndex].Cells["OrderStatus"].Value;
+                var endDateValue = dataGridView1.Rows[e.RowIndex].Cells["EndDateOrder"].Value;
 
                 // Проверяем, не является ли значение null
                 if (cellValue != null)
                 {
                     string statusVIP = cellValue.ToString();
+                    DateTime? endDate = endDateValue as DateTime?;
 
-                    switch (statusVIP)
+                    // Условие для выделения оранжевым цветом
+                    if (statusVIP == "В ожидании" && endDate.HasValue && endDate.Value < DateTime.Today)
                     {
-                        case "В ожидании":
-                            e.CellStyle.BackColor = Color.LightCoral;
-                            break;
-                        case "Завершен":
-                            e.CellStyle.BackColor = Color.LightGreen;
-                            break;
-                        default:
-                            e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
-                            break;
+                        e.CellStyle.BackColor = Color.Orange; // Выделяем оранжевым цветом
+                    }
+                    else
+                    {
+                        switch (statusVIP)
+                        {
+                            case "В ожидании":
+                                e.CellStyle.BackColor = Color.LightCoral;
+                                break;                           
+                            default:
+                                e.CellStyle.BackColor = Color.White; // Установка цвета по умолчанию
+                                break;
+                        }
                     }
                 }
                 else
