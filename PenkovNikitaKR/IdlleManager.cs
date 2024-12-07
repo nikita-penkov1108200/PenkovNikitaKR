@@ -57,7 +57,7 @@ namespace PenkovNikitaKR
            
                 // Сообщение о том, что пользователь не взаимодействовал
                 MessageBox.Show("Вы не взаимодействовали с приложением более 30 секунд. Переход на форму авторизации.", "Блокировка", MessageBoxButtons.OK, MessageBoxIcon.Warning);        
-            
+            //
         }
     }
 }
