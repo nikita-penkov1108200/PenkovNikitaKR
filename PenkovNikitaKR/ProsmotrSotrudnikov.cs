@@ -317,7 +317,9 @@ namespace PenkovNikitaKR
         }
         private void DataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if(dataGridView.SelectedRows.Count > 0)
+            button7.Enabled = dataGridView.SelectedRows.Count > 0;
+
+            if (dataGridView.SelectedRows.Count > 0)
             {
                 button2.Visible = true;
             }
@@ -458,6 +460,76 @@ namespace PenkovNikitaKR
         private void button4_Click(object sender, EventArgs e)
         {
             this.Width = 1100;
+        }
+        private void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Получаем имя столбца
+                string columnName = dataGridView.Columns[e.ColumnIndex].Name;
+
+                // Получаем значение ячейки
+                var cellValue = dataGridView.Rows[e.RowIndex].Cells[columnName].Value;
+
+                // Проверяем, что значение не null
+                if (cellValue != null)
+                {
+                    switch (columnName)
+                    {
+                        case "Name":
+                            var nameValue = cellValue.ToString();
+                            if (!string.IsNullOrEmpty(nameValue))
+                            {
+                                e.Value = nameValue.Substring(0, 1) + new string('*', nameValue.Length - 1);
+                            }
+                            break;
+
+                        case "MiddleName":
+                            var middleNameValue = cellValue.ToString();
+                            if (!string.IsNullOrEmpty(middleNameValue))
+                            {
+                                e.Value = middleNameValue.Substring(0, 1) + new string('*', middleNameValue.Length - 1);
+                            }
+                            break;
+
+                        case "Address":
+                            var addressValue = cellValue.ToString();
+                            if (!string.IsNullOrEmpty(addressValue))
+                            {
+                                var firstWord = addressValue.Split(' ')[0]; // Получаем первое слово
+                                e.Value = firstWord; // Устанавливаем только первое слово
+                            }
+                            break;
+
+                        case "PhoneNumber":
+                            var phoneNumberValue = cellValue.ToString();
+                            if (!string.IsNullOrEmpty(phoneNumberValue) && phoneNumberValue.Length > 2)
+                            {
+                                e.Value = new string('*', phoneNumberValue.Length - 2) + phoneNumberValue.Substring(phoneNumberValue.Length - 2);
+                            }
+                            break;
+
+                        case "login":
+                            e.Value = new string('*', 7); // или e.Value = "******"; для фиксированной длины
+                            break;
+
+                        case "password":
+                            e.Value = new string('*', 7); // или e.Value = "******"; для фиксированной длины
+                            break;
+
+                        case "Surname":
+                            // Не скрываем, оставляем как есть
+                            break;
+
+                        default:
+                            // Установка цвета фона для других столбцов, если нужно
+                            break;
+                    }
+
+                    // Указываем, что форматирование было выполнено
+                    e.FormattingApplied = true;
+                }
+            }
         }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -771,6 +843,56 @@ namespace PenkovNikitaKR
             if (textBoxAddress.Text.Length >= 25 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Запрещаем ввод, если превышено максимальное количество символов
+            }
+        }
+
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Проверяем, что выбран сотрудник
+            if (dataGridView.CurrentRow == null)
+            {
+                MessageBox.Show("Выберите сотрудника для просмотра.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Прерываем выполнение, если ничего не выбрано
+            }
+
+            int rowIndex = dataGridView.CurrentCell.RowIndex;
+            string employeeId = dataGridView.Rows[rowIndex].Cells["idemployee"].Value.ToString(); // Получаем ID сотрудника
+
+            // SQL-запрос для получения данных выбранного сотрудника
+            string sqlQuery = "SELECT Surname, Name, MiddleName, Address, Age, PhoneNumber, Photo, Gender, Role, login, password " +
+                              "FROM employee WHERE idemployee = @idemployee;";
+
+            using (MySqlConnection con = new MySqlConnection(connect))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, con);
+                cmd.Parameters.AddWithValue("@idemployee", employeeId); // Используем параметр для предотвращения SQL-инъекций
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    // Получаем данные
+                    string surname = rdr["Surname"].ToString();
+                    string name = rdr["Name"].ToString();
+                    string middleName = rdr["MiddleName"].ToString();
+                    string address = rdr["Address"].ToString();
+                    int age = Convert.ToInt32(rdr["Age"]);
+                    string phoneNumber = rdr["PhoneNumber"].ToString();
+                    string login = rdr["login"].ToString();
+                    string photo = rdr["Photo"].ToString();
+                    string password = rdr["Password"].ToString();
+                    string gender = rdr["Gender"].ToString();
+                    string role = rdr["Role"].ToString();
+
+                    // Формируем полный путь к фотографии
+                    string photoPath = Path.Combine(dataPath, photo);
+
+                    // Создаем экземпляр формы ProsmotrSotrPoln
+                    ProsmotrSotrPoln detailsForm = new ProsmotrSotrPoln();
+                    detailsForm.DisplayData(surname, name, middleName, address, age, phoneNumber, login, photoPath, password, gender, role);
+                    detailsForm.ShowDialog(); // Показываем форму
+                }
             }
         }
     }

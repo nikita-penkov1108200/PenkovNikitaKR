@@ -159,6 +159,12 @@
     <Compile Include="ProsmotrComponentDevice.Designer.cs">
       <DependentUpon>ProsmotrComponentDevice.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProsmotrSotrPoln.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProsmotrSotrPoln.Designer.cs">
+      <DependentUpon>ProsmotrSotrPoln.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProsmotrSotrudnikov.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProsmotrComponentDevice.resx">
       <DependentUpon>ProsmotrComponentDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProsmotrSotrPoln.resx">
+      <DependentUpon>ProsmotrSotrPoln.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProsmotrSotrudnikov.resx">
       <DependentUpon>ProsmotrSotrudnikov.cs</DependentUpon>
