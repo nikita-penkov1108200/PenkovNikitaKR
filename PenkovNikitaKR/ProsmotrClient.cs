@@ -279,7 +279,9 @@ namespace PenkovNikitaKR
             LoadData();
         }
 
-        private void просмотрToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView.CurrentRow != null)
             {
@@ -291,7 +293,7 @@ namespace PenkovNikitaKR
                 string statusVIP = selectedRow.Cells["StatusVIP"].Value.ToString();
 
                 this.Visible = false;
-                PolnProsmotrClient editForm = new PolnProsmotrClient(name, surname, middleName, phoneNumber, statusVIP);                
+                PolnProsmotrClient editForm = new PolnProsmotrClient(name, surname, middleName, phoneNumber, statusVIP);
 
                 editForm.ShowDialog();
             }

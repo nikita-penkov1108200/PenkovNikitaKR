@@ -8,6 +8,8 @@ namespace PenkovNikitaKR
     public partial class detalprosmotr : Form
     {
         private string orderNumber;
+        private IdlleManager idleManager;
+
 
         public detalprosmotr(string orderNumber)
         {
@@ -18,6 +20,12 @@ namespace PenkovNikitaKR
             LoadOrderDetails();
             LoadOrderStatus(); // Загружаем статусы заказов
             DisableInputFields();
+            idleManager = new IdlleManager();
+
+            // Подписка на события активности пользователя
+            this.MouseMove += (s, e) => idleManager.UserActivityDetected();
+            this.KeyPress += (s, e) => idleManager.UserActivityDetected();
+            this.KeyDown += (s, e) => idleManager.UserActivityDetected();
         }
 
         private void ProsmotrYslyk_Resize(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             this.button1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button1.Location = new System.Drawing.Point(558, 475);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 41);
             this.button1.TabIndex = 0;
@@ -63,13 +63,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(9, 54);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(646, 409);
             this.dataGridView.TabIndex = 1;
-            this.dataGridView.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
             // label4
             // 
@@ -100,7 +100,7 @@
             this.button2.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button2.Location = new System.Drawing.Point(149, 475);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 41);
             this.button2.TabIndex = 66;
@@ -115,7 +115,7 @@
             this.button3.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button3.Location = new System.Drawing.Point(9, 475);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 41);
             this.button3.TabIndex = 67;
@@ -130,7 +130,7 @@
             this.button4.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button4.Location = new System.Drawing.Point(329, 475);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 41);
             this.button4.TabIndex = 68;
@@ -148,9 +148,8 @@
             // просмотрToolStripMenuItem
             // 
             this.просмотрToolStripMenuItem.Name = "просмотрToolStripMenuItem";
-            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.просмотрToolStripMenuItem.Text = "Просмотр";
-            this.просмотрToolStripMenuItem.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
             // 
             // ProsmotrClient
             // 
@@ -165,7 +164,7 @@
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProsmotrClient";

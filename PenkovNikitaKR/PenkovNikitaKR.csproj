@@ -116,6 +116,12 @@
     <Compile Include="HistoryOrder.Designer.cs">
       <DependentUpon>HistoryOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdlleManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdlleManager.Designer.cs">
+      <DependentUpon>IdlleManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="img\Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistoryOrder.resx">
       <DependentUpon>HistoryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdlleManager.resx">
+      <DependentUpon>IdlleManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="img\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>

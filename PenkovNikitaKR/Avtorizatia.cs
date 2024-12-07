@@ -30,7 +30,6 @@ namespace PenkovNikitaKR
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Resize += new EventHandler(ProsmotrYslyk_Resize);
 
-
             // Инициализация таймера
             unblockTimer = new Timer();
             unblockTimer.Interval = 10000; // 10 секунд
